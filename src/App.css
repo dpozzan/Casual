@@ -1,0 +1,96 @@
+
+.Navbar {
+  background-color: rgba(130, 120, 100, 1);
+  height: 80px;
+  display: flex;
+  align-items: center;
+}
+
+.Home {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: space-around;
+  justify-content: space-around;
+  height: 100vh;
+
+
+  
+}
+
+.Logo {
+  height: 50px;
+  width: 50px;
+}
+
+.Card {
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  width: 300px;
+  height: 200px;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  color: #fff;
+  border-radius: 20px;
+}
+.Card:before {
+  content: ' ';
+  background-image: url('./assets/imgs/bg.jpg');
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0.3;
+  border-radius: 20px;
+
+}
+
+.Card:hover {
+  transform: scale(1.03);
+  background-image: url('./assets/imgs/bg.jpg');
+
+}
+
+.PokemonImg{
+  height: 120px;
+  width: 120px;
+}
+
+.DescPok {
+  text-transform: capitalize;
+  height: 100%;
+}
+
+.fakeBtn {
+  background-color: rgba(255, 255, 255, 0.3);
+  text-align: center;
+  padding: 4px;
+  width: 100%;
+  border-radius: 8px;
+}
+
+.DialogCont {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 80px;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.DialogCard {
+  width: 20%;
+  height: 60%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
+  
+
+}
