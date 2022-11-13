@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
-import Card from './Card'
-import '../App.css';
-import {Link} from 'react-router-dom';
+import Pokemon from './Cards/Pokemon';
+import Overlay from './Overlay';
+import classes from './Home.module.css';
 
 function Home() {
 
@@ -10,6 +10,8 @@ function Home() {
     }, []);
 
     const [allPokemons, setPokemons] = useState([]);
+    const [isInvisible, setIsInvisible] = useState(true);
+    const [colorCard, setColorCard] = useState('');
 
     const fetchData = async () => {
         const pokemonsArray = [];
@@ -22,14 +24,26 @@ function Home() {
         setPokemons(pokemonsArray);
     }
 
+    const setVisible = (colorCard) => {
+        setColorCard(colorCard);
+        setIsInvisible(false);
+    }
+
+    const setInvisible = (e) => {
+        setIsInvisible(true);
+        e.stopPropagation();
+    }
+
     
 
     return(
-        <div className='Home'>
-            {allPokemons.map((pokemon, index) => (
-                <Link to={{link:`/${pokemon.name}`}}>
-                    <Card key={index} pokemon={pokemon}  />
-                </Link>
+        <div className={classes.Home}>
+            <div className={classes.bg} />
+
+            <Overlay colorPokemon={colorCard}  className={isInvisible && classes.invisible} onClick={setInvisible}/>
+            {allPokemons.map((pokemon) => (
+                <Pokemon key={pokemon.name.toString()} pokemon={pokemon} onClick={setVisible}/>
+              
             ))}
 
         </div>

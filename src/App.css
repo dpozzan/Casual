@@ -1,12 +1,12 @@
 
-.Navbar {
+/* .Navbar {
   background-color: rgba(130, 120, 100, 1);
   height: 80px;
   display: flex;
   align-items: center;
-}
+} */
 
-.Home {
+/* .Home {
   display: flex;
   flex-wrap: wrap;
   gap: 40px;
@@ -16,14 +16,14 @@
 
 
   
-}
+} */
 
-.Logo {
+/* .Logo {
   height: 50px;
   width: 50px;
-}
+} */
 
-.Card {
+/* .Card {
   position: relative;
   cursor: pointer;
   display: flex;
@@ -52,9 +52,9 @@
   transform: scale(1.03);
   background-image: url('./assets/imgs/bg.jpg');
 
-}
+} */
 
-.PokemonImg{
+/* .PokemonImg{
   height: 120px;
   width: 120px;
 }
@@ -70,9 +70,9 @@
   padding: 4px;
   width: 100%;
   border-radius: 8px;
-}
+} */
 
-.DialogCont {
+/* .DialogCont {
   position: fixed;
   display: flex;
   align-items: center;
@@ -93,4 +93,4 @@
   
   
 
-}
+} */

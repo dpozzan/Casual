@@ -1,10 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import '../App.css';
+import classes from './Pokemon.module.css';
 
 
 
-
-function Card(props) {
+function Pokemon(props) {
     const matches = [
         {name: 'grass', color: '#49CDAE'},
         {name: 'fire', color: '#FC6C6D'},
@@ -25,33 +24,36 @@ function Card(props) {
 
     const urlImg = props.pokemon.sprites.other.dream_world.front_default;
     const typsPok = props.pokemon.types;
+    const [colorCard, setColor] = useState('#49CDAE');
+
     useEffect(() => {
+        const getType = () => {
+            const typeImp = typsPok[0].type.name;
+            matches.map(match => {
+                if(match.name == typeImp){
+                    setColor(match.color)
+                }
+        })
+        }
         getType();
     }, [])
-    const [colorCard, setColor] = useState('#49CDAE');
-    const getType = () => {
-        const typeImp = typsPok[0].type.name;
-        matches.map(match => {
-            if(match.name == typeImp){
-                setColor(match.color)
-            }
-    })
-    }
 
-    const waffala = () => {
-        alert('du hast waffala gewacht!')
+    const putColor = () => {
+        props.onClick(colorCard);
     }
+    
+    
 
     return(
-        <div onClick={waffala} style={{backgroundColor: colorCard}}  className='Card'>
-            <div className='DescPok'>
+        <div style={{backgroundColor: colorCard}}  className={classes.Card} onClick={putColor}>
+            <div className={classes.DescPok}>
                 <h2>{props.pokemon.name}</h2>
                 {typsPok.map((typ, index) => (
-                    <p className='fakeBtn' key={index}>{typ.type.name}</p>
+                    <p className={classes.fakeBtn} key={index}>{typ.type.name}</p>
                 ))}
 
             </div>
-            <img className='PokemonImg' src={urlImg} alt="image of pokemon" />
+            <img className={classes.PokemonImg} src={urlImg} alt="image of pokemon" />
            
             
 
@@ -59,4 +61,4 @@ function Card(props) {
     )
 }
 
-export default Card;
+export default Pokemon;
